@@ -28,6 +28,7 @@ curl -fsSL https://raw.githubusercontent.com/bvalerin/ai-agent-os/main/install.s
 - Referencia MCP para herramientas
 - Scripts namespaced en `scripts/agent-os-*.sh`
 - Metadata local del instalador en `.agent-os/`
+- Bloque gestionado en `.gitignore` para lo que instala Agent OS
 
 ## Uso rapido
 1. Revisa `.ai/README.md`.

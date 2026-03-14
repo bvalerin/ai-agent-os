@@ -12,6 +12,8 @@ LOCAL_BIN_DIR=".agent-os/bin"
 LOCAL_COMMAND_PATH=".agent-os/bin/agent-os"
 INSTALL_STATE_FILE=".agent-os/state/install.env"
 STATE_MANIFEST_FILE=".agent-os/state/manifest.tsv"
+GITIGNORE_START_MARKER="# >>> agent-os >>>"
+GITIGNORE_END_MARKER="# <<< agent-os <<<"
 
 MODE="install"
 FORCE=0
@@ -204,6 +206,62 @@ build_file_list() {
   )
 }
 
+build_gitignore_entries() {
+  local source_root="$1"
+  local output_path="$2"
+  local manifest_path="$source_root/install-manifest.txt"
+
+  [[ -f "$manifest_path" ]] || die "install-manifest.txt not found in source."
+
+  {
+    printf '/.agent-os/\n'
+
+    while IFS= read -r entry || [[ -n "$entry" ]]; do
+      case "$entry" in
+        ''|'#'*)
+          continue
+          ;;
+      esac
+
+      if [[ -d "$source_root/$entry" ]]; then
+        printf '/%s/\n' "${entry#./}"
+        continue
+      fi
+
+      printf '/%s\n' "${entry#./}"
+    done < "$manifest_path"
+  } | awk '!seen[$0]++' > "$output_path"
+}
+
+write_gitignore_block() {
+  local target_root="$1"
+  local entries_path="$2"
+  local gitignore_path="$target_root/.gitignore"
+  local temp_path="$WORK_DIR/gitignore.tmp"
+
+  if [[ -f "$gitignore_path" ]]; then
+    awk -v start="$GITIGNORE_START_MARKER" -v end="$GITIGNORE_END_MARKER" '
+      $0 == start { skip = 1; next }
+      $0 == end { skip = 0; next }
+      !skip { print }
+    ' "$gitignore_path" > "$temp_path"
+  else
+    : > "$temp_path"
+  fi
+
+  if [[ -s "$temp_path" ]]; then
+    printf '\n' >> "$temp_path"
+  fi
+
+  {
+    printf '%s\n' "$GITIGNORE_START_MARKER"
+    cat "$entries_path"
+    printf '%s\n' "$GITIGNORE_END_MARKER"
+  } >> "$temp_path"
+
+  mv "$temp_path" "$gitignore_path"
+}
+
 write_install_state() {
   local target_root="$1"
   local repo="$2"
@@ -361,9 +419,11 @@ fi
 
 FILE_LIST_PATH="$WORK_DIR/file-list.txt"
 NEXT_MANIFEST_PATH="$WORK_DIR/manifest.next.tsv"
+GITIGNORE_ENTRIES_PATH="$WORK_DIR/gitignore.entries"
 PREVIOUS_MANIFEST_PATH="$TARGET_DIR/$STATE_MANIFEST_FILE"
 
 build_file_list "$SOURCE_DIR" "$FILE_LIST_PATH"
+build_gitignore_entries "$SOURCE_DIR" "$GITIGNORE_ENTRIES_PATH"
 : > "$NEXT_MANIFEST_PATH"
 
 installed_count=0
@@ -443,6 +503,7 @@ mkdir -p "$TARGET_DIR/$STATE_DIR_NAME" "$TARGET_DIR/$LOCAL_BIN_DIR"
 cp "$NEXT_MANIFEST_PATH" "$TARGET_DIR/$STATE_MANIFEST_FILE"
 write_install_state "$TARGET_DIR" "$REPO" "$REF" "$MODE"
 write_local_command "$TARGET_DIR"
+write_gitignore_block "$TARGET_DIR" "$GITIGNORE_ENTRIES_PATH"
 
 log ""
 log "Agent OS ready."
@@ -456,3 +517,4 @@ log ""
 log "Local commands:"
 log "  ./.agent-os/bin/agent-os update"
 log "  ./.agent-os/bin/agent-os version"
+log "Git ignore updated: .gitignore"
