@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "project": "agent-os",
+  "default_timeout_ms": 30000,
+  "servers": {
+    "filesystem": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "${MCP_FILESYSTEM_COMMAND}",
+      "args": [
+        "${WORKSPACE_ROOT}"
+      ]
+    },
+    "git": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "${MCP_GIT_COMMAND}",
+      "args": [
+        "${WORKSPACE_ROOT}"
+      ]
+    },
+    "browser": {
+      "enabled": false,
+      "transport": "stdio",
+      "command": "${MCP_BROWSER_COMMAND}",
+      "args": []
+    },
+    "docs": {
+      "enabled": false,
+      "transport": "http",
+      "url": "${MCP_DOCS_URL}",
+      "headers": {
+        "Authorization": "Bearer ${MCP_DOCS_TOKEN}"
+      }
+    },
+    "database": {
+      "enabled": false,
+      "transport": "stdio",
+      "command": "${MCP_DATABASE_COMMAND}",
+      "args": [
+        "${DATABASE_URL}"
+      ]
+    }
+  }
+}
