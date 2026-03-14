@@ -17,7 +17,7 @@ Solicitudes:
 1. Resume responsabilidad, contrato y dependencias.
 2. Explica decisiones relevantes y limites del modulo.
 3. Indica como probarlo u operarlo.
-4. Sugiere que archivo de docs debe actualizarse.
+4. Sugiere que archivo de `.ai/` debe actualizarse.
 
 Formato:
 - Resumen

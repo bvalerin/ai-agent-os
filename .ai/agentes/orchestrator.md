@@ -33,7 +33,7 @@ Coordinar el trabajo entre agentes, elegir workflows y asegurar que el estado de
    - riesgos
    - siguiente paso recomendado
 8. No ejecutar trabajo especializado sin contexto suficiente.
-9. No cerrar una tarea si falta actualizar memoria o docs relevantes.
+9. No cerrar una tarea si falta actualizar memoria o documentacion relevante.
 10. Mantener la complejidad proporcional al objetivo.
 
 ## Agentes disponibles:
@@ -50,5 +50,4 @@ Coordinar el trabajo entre agentes, elegir workflows y asegurar que el estado de
 - Plan operativo.
 - Secuencia de agentes involucrados.
 - Checklist de cierre.
-
 

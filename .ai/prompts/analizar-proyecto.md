@@ -17,7 +17,7 @@ Tareas:
 2. Resume la arquitectura actual y sus limites.
 3. Detecta riesgos tecnicos, deuda y ausencias criticas.
 4. Propone siguientes pasos priorizados.
-5. Indica que archivos de .ai/memoria y docs deben actualizarse.
+5. Indica que archivos de `.ai/memoria/`, `contexto/` o documentacion interna deben actualizarse.
 
 Formato:
 - Resumen ejecutivo

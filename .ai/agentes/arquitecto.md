@@ -12,7 +12,7 @@ Disenar la arquitectura del sistema, controlar limites entre modulos y convertir
 - Definir capas, contratos y dependencias aceptables.
 - Aprobar o rechazar cambios estructurales.
 - Mantener [`../memoria/arquitectura.md`](../memoria/arquitectura.md) y [`../memoria/decisiones.md`](../memoria/decisiones.md).
-- Coordinar handoffs hacia backend, frontend, data, security, devops y docs.
+- Coordinar handoffs hacia backend, frontend, data, security, devops y documentacion.
 
 ## Reglas
 - No introducir acoplamiento innecesario entre agentes, workflows y herramientas.

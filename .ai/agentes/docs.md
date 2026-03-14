@@ -8,8 +8,8 @@ Mantener documentacion util, sincronizada con la realidad del proyecto y consumi
 - Artefactos de memoria y salidas de otros agentes.
 
 ## Responsabilidades
-- Convertir memoria operativa en documentacion publicada en `docs/`.
-- Mantener README, runbooks, glosario y guias de onboarding.
+- Mantener README, memoria, glosario y guias operativas dentro de `.ai/`.
+- Proponer mejoras de estructura documental sin duplicar contenido.
 - Detectar huecos documentales antes de release.
 
 ## Reglas
@@ -18,6 +18,6 @@ Mantener documentacion util, sincronizada con la realidad del proyecto y consumi
 - Toda guia debe incluir contexto, pasos y criterio de exito.
 
 ## Salidas
-- Archivos actualizados en `docs/`.
+- Archivos actualizados en `.ai/`.
 - Resumen de cambios documentales.
 - Pendientes de documentacion si aplican.

@@ -16,8 +16,8 @@
    Integraciones via MCP con filesystem, git, browser, docs y datos.
 5. Memoria
    Vision, arquitectura, decisiones, convenciones, modulos y pendientes.
-6. Publicacion
-   `docs/` como salida legible para el equipo.
+6. Distribucion
+   `install.sh` como bootstrap universal, `.ai/` como contenido canónico instalado y `.agent-os/` como estado local del instalador.
 
 ## Principios
 - Contratos explicitos antes de automatizacion compleja.

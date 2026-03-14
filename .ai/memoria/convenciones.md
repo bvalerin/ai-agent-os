@@ -7,7 +7,6 @@
 
 ## Documentacion
 - `.ai/` es fuente operativa.
-- `docs/` es salida consolidada para consulta del equipo.
 - Toda decision relevante debe reflejarse en `memoria/decisiones.md`.
 
 ## Trabajo con modulos

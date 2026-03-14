@@ -18,4 +18,4 @@
 
 ## Pruebas minimas
 
-## Impacto en memoria/docs
+## Impacto en memoria/documentacion

@@ -1,0 +1,3 @@
+.ai
+scripts/agent-os-bootstrap.sh
+scripts/agent-os-qa.sh

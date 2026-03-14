@@ -12,4 +12,4 @@
 
 ## Prioridad baja
 - Publicar ejemplos reales de modulos.
-- Agregar automatizacion de sincronizacion entre `.ai/` y `docs/`.
+- Refinar prompts y plantillas segun casos reales de uso.

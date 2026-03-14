@@ -19,4 +19,4 @@ Crear un modulo nuevo alineado con vision, arquitectura y convenciones del proye
 ## Salidas
 - Modulo creado.
 - Pruebas iniciales.
-- Memoria y docs actualizadas.
+- Memoria actualizada.

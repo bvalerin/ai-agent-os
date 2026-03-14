@@ -18,11 +18,16 @@
 - `contexto/`: stack, entornos, integraciones y glosario.
 - `mcp/`: referencia para herramientas y servidores recomendados.
 
+## Comandos locales
+- `./.agent-os/bin/agent-os update`: actualiza los archivos gestionados sin pisar cambios locales por defecto.
+- `scripts/agent-os-bootstrap.sh`: repara o verifica la estructura base del proyecto.
+- `scripts/agent-os-qa.sh`: ejecuta QA segun el stack detectado.
+
 ## Reglas operativas
 1. Todo cambio tecnico que afecte estructura o dominio debe reflejarse en `memoria/`.
 2. Todo workflow debe dejar una salida concreta: codigo, decision, reporte o evidencia.
 3. Los prompts son reutilizables; no reemplazan memoria ni decisiones.
-4. La carpeta `docs/` es la capa publicada; `.ai/` es la capa operativa.
+4. La carpeta `.ai/` concentra el contexto operativo y documental del proyecto.
 
 ## Estado inicial
 - El repositorio aun no contiene codigo de aplicacion.

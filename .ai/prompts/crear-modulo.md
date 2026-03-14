@@ -20,7 +20,7 @@ Solicitudes:
 2. Define interfaces y responsabilidades.
 3. Implementa el codigo base necesario.
 4. Sugiere pruebas minimas.
-5. Indica que memoria y docs deben actualizarse.
+5. Indica que memoria y documentacion interna deben actualizarse.
 
 Formato:
 - Diseno breve
